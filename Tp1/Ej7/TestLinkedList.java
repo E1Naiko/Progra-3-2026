@@ -1,8 +1,7 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TestArrayList {
+public class TestLinkedList {
     public static void main(String[] args) {
         List<Integer> lista = new LinkedList<Integer>();
 

@@ -1,5 +1,7 @@
 import java.util.Scanner;
 public class p32026tp1ej3main {
+    private static Scanner in = new Scanner(System.in);
+    
     public static void main(String[] args) {
         Estudiante [] arregloEstudiantes = new Estudiante[3];
         Profesor [] arregloProfesores = new Profesor[2];
@@ -21,11 +23,11 @@ public class p32026tp1ej3main {
         for (int i=0; i<2; i++){
             System.out.println(arregloProfesores[i].tusDatos());
         }
+        
+        in.close();
     }
 
     private static Estudiante innitEstudiante(){
-        Scanner in = new Scanner(System.in);
-        
         System.out.println("Estudiante:");
         System.out.println(" - nombre:");
         String nom = in.next();
@@ -39,11 +41,10 @@ public class p32026tp1ej3main {
         String dir = in.next();
         
         Estudiante act = new Estudiante(nom, ape, com, mail, dir);
+        
         return act;
     }
     private static Profesor innitProfesor(){
-        Scanner in = new Scanner(System.in);
-        
         System.out.println("Profesor");
         System.out.println(" - nombre:");
         String nom = in.next();

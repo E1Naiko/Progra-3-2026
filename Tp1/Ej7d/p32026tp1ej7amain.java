@@ -6,14 +6,14 @@ public class p32026tp1ej7amain {
     static Scanner in = new Scanner(System.in);
     
     public static void main(String[] args) {
-        List lista1 = new ArrayList<Estudiante>();
-        List lista2 = new ArrayList<Estudiante>();
+        List<Estudiante> lista1 = new ArrayList<Estudiante>();
+        List<Estudiante> lista2 = new ArrayList<Estudiante>();
         
         for (int i=0; i<3; i++){
             lista1.add(innitEstudiante());
         }
         
-        for (Lista aux : lista1) {
+        for (Estudiante aux : lista1) {
             lista2.add(aux);
         }
         
@@ -40,8 +40,6 @@ public class p32026tp1ej7amain {
         System.out.println(lista1);
         System.out.println(lista2);
         
-        close(in);
-        
     }
     
     private static Estudiante innitEstudiante(){
@@ -62,7 +60,7 @@ public class p32026tp1ej7amain {
         return act;
     }
     
-    private static void agregarNuevo(Lista<Estudiante> lista){
+    private static void agregarNuevo(List<Estudiante> lista){
         Estudiante nue = innitEstudiante();
         for (Estudiante estu : lista) {
             if (estu.equals(nue)){

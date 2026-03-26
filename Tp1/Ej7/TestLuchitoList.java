@@ -45,5 +45,5 @@ public class TestLuchitoList {
         invertir(lista,ini++,fin--);
     }
     //Comentario final. Luchito estuvo y arruino el testLinkedList.java
-    */
+    
 }
