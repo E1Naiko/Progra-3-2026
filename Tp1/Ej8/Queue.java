@@ -1,8 +1,20 @@
 package Tp1.Ej8;
 
-public class Queue<T> extends Sequence{
-    public Queue(){
+import java.util.LinkedList;
 
+public class Queue<T> extends Sequence{
+    private LinkedList<T> lista;
+    
+    public Queue(){
+        lista = new LinkedList<T>();
+    }
+
+    public void enqueue(T dato){
+        lista.add(dato);
+    }
+
+    public T dequeue(){
+        
     }
 
     @Override
