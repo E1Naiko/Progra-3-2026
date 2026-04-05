@@ -1,31 +1,46 @@
 package Tp1.Ej8;
 
 import java.util.LinkedList;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Queue<T> extends Sequence{
-    private LinkedList<T> lista;
+    public List<T> data;
     
     public Queue(){
-        lista = new LinkedList<T>();
+        data = new LinkedList<T>();
     }
 
     public void enqueue(T dato){
-        lista.add(dato);
+        data.add(dato);
     }
 
     public T dequeue(){
-        
+        if (data.isEmpty()) throw new NoSuchElementException("Cola Vacia");
+        else{
+            T act = data.getFirst();
+            data.remove(act);
+            return act;
+        }
+    }
+
+    public T head(){
+        if (data.isEmpty()) throw new NoSuchElementException("Cola Vacia");
+        else return data.getFirst();
     }
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return data.size();
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return data.isEmpty();
+    }
+
+    @Override
+    public String toString(){
+        return data.toString();
     }
 }
