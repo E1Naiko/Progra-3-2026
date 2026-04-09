@@ -1,6 +1,6 @@
 package tp2.ejercicio1;
 
-
+import tp2.ejercicio1.Queue;
 
 public class BinaryTree <T> {
 	
@@ -81,32 +81,120 @@ public class BinaryTree <T> {
 		return res;
 	}
 		
-	private	int contador(BinaryTree<T> arbol, int act){
-		int res = 0;
-		if (arbol.hasLeftChild()){
-			res += contador(arbol.leftChild, act+1);
+	private	int contador(BinaryTree<T> nodo, int act){
+		if (!nodo.hasLeftChild() &&  !nodo.hasRightChild()){
+			act++;
 		}
-		if (arbol.hasRightChild()){
-			res += contador(arbol.rightChild, act+1);
+
+		if (nodo.hasLeftChild()){
+			act += contador(nodo.leftChild, act);
 		}
-		return act + res;
+
+		if (nodo.hasRightChild()){
+			act += contador(nodo.rightChild, act);
+		}
+		
+		return act;
 	}
     	 
     public BinaryTree<T> espejo(){
-		BinaryTree<T> arbol = new BinaryTree<T>();
-
-
- 	    return null;
+		BinaryTree<T> nodo = this;
+		reflejar(nodo);
+ 	    return nodo;
     }
 
-	private void reflejar(BinaryTree<T> rama){
-		r
+	private void reflejar(BinaryTree<T> nodo){
+		BinaryTree<T> aux = null;
+		
+		if (nodo.hasLeftChild()){
+			reflejar(nodo.leftChild);
+		}
+
+		if (nodo.hasRightChild()){
+			reflejar(nodo.rightChild);
+		}
+
+		aux = nodo.leftChild;
+		nodo.leftChild = nodo.rightChild;
+		nodo.rightChild = aux;
 	}
 
 	// 0<=n<=m
+	/*
+	public void porNiveles() {
+		encolar(raíz);
+		mientras (cola no se vacíe) {
+			desencolar(v);
+			imprimir (dato de v);
+			si (tiene hijo_izquierdo)
+				encolar(hijo_izquierdo);
+			si (tiene hijo_derecho)
+				encolar(hijo_derecho);
+		}
+	}
+
+	public void printLevelTraversal() {
+    	BinaryTree<T> ab = null;
+    	Queue<BinaryTree<T>> cola = new Queue<BinaryTree<T>>();
+    	
+		cola.enqueue(this);
+    	cola.enqueue(null);
+    	
+		while (!cola.isEmpty()) {
+    		ab = cola.dequeue();
+    		if (ab != null) {
+    			System.out.print(ab.getData());
+    			
+				if (ab.hasLeftChild()) {
+    				cola.enqueue(ab.getLeftChild());
+    			}
+    				if (ab.hasRightChild()) {
+    				cola.enqueue(ab.getRightChild());
+    			}
+    		} else if (!cola.isEmpty()) {
+    			System.out.println();
+    			cola.enqueue(null);
+    		}
+    	}
+	}
+	*/
 	public void entreNiveles(int n, int m){
-		
-   }
-		
+		int cont = 0;
+		BinaryTree<T> nodo = null;
+		Queue<BinaryTree<T>> cola = new Queue<BinaryTree<T>>();
+
+		// encolo la raiz del arbol
+		cola.enqueue(this);
+		cola.enqueue(null);
+ 
+		while (!cola.isEmpty()){
+			// desencolo nodo actual
+			nodo = cola.dequeue();
+
+			// subo de nivel
+			if (nodo != null){
+				cont++;
+				// ESPECIFICO PARA EL EJ: si n<=cont<=m imprimo
+				if (cont < n && cont <= m){
+					System.out.println(nodo.getData());
+				}
+				// encolo el hijo izq
+				if (nodo.hasLeftChild()){
+					cola.enqueue(nodo.getLeftChild());
+				}
+				// encolo el hijo der
+				if (nodo.hasRightChild()){
+					cola.enqueue(nodo.getRightChild());
+				}
+			}
+			// bajo de nivel
+			else if(!cola.isEmpty()){
+				System.out.println();
+				cont--;
+				cola.enqueue(null);
+			}
+		}
+   	}
+
 }
 
