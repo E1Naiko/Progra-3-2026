@@ -28,7 +28,7 @@ public class p32026tp1ej8main {
         mandaleCuete(cola, colaCircular, colaDoble);
     }
 
-    private static void mandaleCuete(Queue<Integer> cola, CircularQueue<Integer> colaCircular,  DoubleEndedQueue colaDoble){
+    private static void mandaleCuete(Queue<Integer> cola, CircularQueue<Integer> colaCircular,  DoubleEndedQueue<Integer> colaDoble){
         System.out.println("C " + cola + ", " + cola.size());
         System.out.println("CC " + colaCircular + ", " +colaCircular.size());
         System.out.println("CDE " + colaDoble + ", " + colaDoble.size());

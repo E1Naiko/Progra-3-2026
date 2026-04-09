@@ -1,6 +1,6 @@
 package tp2.ejercicio1;
 
-import tp2.ejercicio1.Queue;
+import Tp1.Ej8.Queue;
 
 public class BinaryTree <T> {
 	
