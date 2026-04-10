@@ -1,4 +1,4 @@
-package tp2.Ej2;
+package tp2.Ej3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +30,8 @@ public class ControladorArbol {
         if (nodo == null) return;
         int act = nodo.getData();
         
+        
+
         if (nodo.hasLeftChild())
             inOrder(nodo.getLeftChild(), lista);
 
