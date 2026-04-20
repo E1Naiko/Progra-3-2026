@@ -15,7 +15,7 @@ public class ParcialArboles {
 
             cola1.enqueue(arbol1);
             cola2.enqueue(arbol2);
-            while (!cola1.isEmpty() && !cola2.isEmpty() && ! encontre){
+            while (!cola1.isEmpty() && !cola2.isEmpty() && !encontre){
                 nodo1 = cola1.dequeue();
                 nodo2 = cola2.dequeue();
 
