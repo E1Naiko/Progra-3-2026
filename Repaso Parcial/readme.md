@@ -1,0 +1,1 @@
+En una estacion espacial desde el panel solar maestro se genera una cierta cantidad de energia en kW, que se distribuye en partes iguales entre cada uno de sus derivadores, cada derivador puede volver

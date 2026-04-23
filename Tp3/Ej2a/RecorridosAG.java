@@ -1,5 +1,6 @@
 package Tp3.Ej2a;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,10 +16,10 @@ public class RecorridosAG {
         return res;
     }
 
-    private void preOrder(Tp3.Ej1.GeneralTree<Integer> nodo, Integer n, List<Integer> res){
+    private void preOrder(GeneralTree<Integer> nodo, Integer n, List<Integer> res){
         if (nodo!=null){
             int act = nodo.getData();
-            if (act % 2 == 1 && act > n.intValue())
+            if (act % 2 != 0 && act > n.intValue())
                 res.add(act);
 
             if (nodo.hasChildren()){
@@ -64,6 +65,33 @@ public class RecorridosAG {
 
         return res;
     }
+    
+    private void inOrder(GeneralTree<Integer> nodo, Integer n, List<Integer> res){
+        if (nodo!=null){
+            List<Integer> children;
+            Iterator<GeneralTree<Integer>> it;
+            GeneralTree<Integer> child;
+            
+            if (nodo.hasChildren()){
+                children = nodo.getChildren();
+                it = children.iterator();
+                child = it.next();
+                inOrder(child, n, res);
+            }
+            
+            int act = nodo.getData();
+            if (act % 2 != 0 && act > n.intValue())
+                res.add(act);
+            
+            if (it != null){
+                while (it.hasNext()){
+                    child = it.next();
+                    inOrder(child, n, res);
+                }
+            }
+        }
+    }
+
 
     public List<Integer> numerosImparesMayoresQuePostOrden (GeneralTree <Integer> a, Integer n){
         List<Integer> res = new LinkedList<>();
