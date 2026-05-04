@@ -1,4 +1,4 @@
-package tp3;
+package Tp3;
 
 import java.util.List;
 
@@ -113,7 +113,7 @@ public class GeneralTree<T> {
 	}
 
 	public int ancho (){
-		return recorrerArbolDevuelveAncho(this)
+		return recorrerArbolDevuelveAncho(this);
 	}
 
 	private int recorrerArbolDevuelveAncho(GeneralTree<T> arbol){
